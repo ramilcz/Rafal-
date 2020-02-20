@@ -1,6 +1,9 @@
 
 import math
 import sys
+import random
+import turtle
+
 
 # funkcja struktura_obszaru_roboczego sluzy tylo do zubdowania struktury (potem kopia do obszaru roboczego)
 # wejscie - wstepna ilosc list i zadan w kazej z list.
@@ -39,7 +42,7 @@ def struktura_obszaru_roboczego():
 
 
 
-slownik_listy_liczba_zadan = {'lista1': 5, 'lista2': 8, 'lista3': 5, 'lista4': 10, 'lista5': 10, 'lista6': 10, 'lista7': 10, 'lista8': 10, 'lista9': 10, 'lista10': 10, 'lista11': 10, 'lista12': 10}
+slownik_listy_liczba_zadan = {'lista1': 5, 'lista2': 8, 'lista3': 5, 'lista4': 6, 'lista5': 6, 'lista6': 3, 'lista7': 5, 'lista8': 5, 'lista9': 2, 'lista10': 5, 'lista11': 4, 'lista12': 10}
 # wyjsciowy poziom znajomosci zagadnien i ilosci wykonanych zadan
 szac_poziom_znajomosci_zadania = 0
 ukonczenie_zadania = 0
@@ -312,21 +315,21 @@ wstępując do wspólnoty akademickiej Uniwersytetu Wrocławskiego, ślubuję ur
     - postępować zgodnie z prawem, tradycją i dobrymi obyczajami akademickimi,
     - dbać o dobre imię Uniwersytetu Wrocławskiego i godność studenta.
     """
-    print(slubowanie)
-    print(slubowanie[0])
-    print(slubowanie.upper()) # zaczyna sie wielka litera :) co tam ze wszystkie inne tez sa wielkie
+    slubowanie_capitalW = slubowanie.replace(slubowanie[5], 'W')
+    print(slubowanie_capitalW)
     i = slubowanie.count(' i ')
-    print(i)
+    #print(i)
     i = slubowanie.count('i')
-    print(i)
-    if "Uniwersytet" in slubowanie:
-        print('tak, wystepuje')
+    #print(i)
+    #if "Uniwersytet" in slubowanie:
+        #print('tak, wystepuje')
+
 
     lista = slubowanie.split()
     print(lista)
-    print(*lista, sep = ', ') # drukuje tylko elementy listy i zadany separator
-    print(len(lista))
-    print(*lista, sep ='\n')
+    #print(*lista, sep = ', ') # drukuje tylko elementy listy i zadany separator
+    #print(len(lista))
+    #print(*lista, sep ='\n')
 
 
 
@@ -335,7 +338,7 @@ wstępując do wspólnoty akademickiej Uniwersytetu Wrocławskiego, ślubuję ur
 #zadanie ukonczone? wpisz 1 jesli tak
 ukonczenie_zadania += 1
 #szacunkowy poziom znajomosci zagadnienia od 1 do 10
-szac_poziom_znajomosci_zadania += 4
+szac_poziom_znajomosci_zadania += 6
 
 def lista2_zadanie6():
     '''
@@ -481,96 +484,389 @@ ukonczenie_zadania += 1
 szac_poziom_znajomosci_zadania += 4
 
 def lista3_zadanie2():
-        '''
 
-        '''
+    '''
 
-lista3_zadanie2()
+
+    Zad 2.
+
+    Przeanalizuj poniższy kod:
+
+    #!/usr/bin/env python
+
+    i = 0
+
+    # drukujemy wszystkie liczby parzyste mniejsze od 10
+    while i < 10:
+    if i % 2:    # reszta z dzielenia != 0 -> True
+        continue # pomiń liczby nieparzyste
+    else:
+        print(i) # drukuj liczby parzyste
+
+    i += 1 # zwiększ i o jeden
+
+    Czy skrypt będzie działał zgodnie z założeniami? Jeśli nie, to napraw go.
+
+
+    '''
+    #!/usr/bin/env python #question - znalazlem taki opis ale daje nie jest to dla mnie jasne
+    '''
+    You are specifying the location to the python executable in your machine, that rest of the script needs to be interpreted with.
+    You are pointing to python is located at /usr/local/bin/python
+    
+    Consider the possiblities that in a different machine, python may be installed at /usr/bin/python or /bin/python in those cases, the above #! will fail.
+    For those cases, we get to call the env executable with argument which will determine the arguments path by searching in the $PATH and use it correctly.
+    
+    Thus,
+    #/usr/bin/env python
+    Will figure out the correct location of python ( /usr/bin/python or /bin/python from $PATH) and make that as the interpreter for rest of the script.
+    - ( env is almost always located in /usr/bin/ so one need not worry what is env is not present at /usr/bin)'''
+
+    i = 0
+    while i < 10:
+        if i % 2 == 0:
+            print(i)
+        i += 1  # zwiększ i o jeden
+
+
+#lista3_zadanie2()
 #zadanie ukonczone? wpisz 1 jesli tak
-ukonczenie_zadania += 0
+ukonczenie_zadania += 1
 #szacunkowy poziom znajomosci zagadnienia od 1 do 10
-szac_poziom_znajomosci_zadania += 0
+szac_poziom_znajomosci_zadania += 8
 
 def lista3_zadanie3():
-        '''
+    '''
+    Uzupełnij skrypt o brakujące fragmenty:
 
-        '''
+    #!/usr/bin/env python
 
-lista3_zadanie3()
+    # lista zakupów
+    grocery = ['jajka', 'mleko', 'chleb', 'maslo', 'piwo']
+    # ilość sztuk
+    n_items = {}
+    # zakazane produkty
+    prohibited = ['wódka', 'piwo', 'wino']
+
+    # w pętli pytamy użytkownika, ile sztuk danego produktu chce kupić
+    for product in grocery:
+    # wydrukuj na ekranie komunikat: "Produkt [nazwa produktu]: sztuk = "
+    # pobierz liczbę od użytkownika i zapisz w n_items dla danego produktu
+    # pomiń produkty zakazane (i automatycznie przyjmij ilość = 0)
+
+    # w pętli wydrukuj: [lp]. [nazwa produktu]: [ilość]
+    # czyli np.: 1. jajka: 5 itd.
+
+    '''
+    grocery = ['jajka', 'mleko', 'chleb', 'maslo', 'piwo']
+    n_items = {}
+    prohibited = ['wodka', 'piwo', 'wino']
+
+    print('ile potrzeba kolejnych produktow')
+    for produkt in grocery:
+        ilosc = 0
+        if produkt not in prohibited:
+            ilosc = input('{}: sztuk:'.format(produkt))
+        n_items.update({produkt: ilosc})# nie umialem tego zapisu dalem znak rowna sie po update...
+    for i, (produkt, ilosc) in enumerate(n_items.items()): # tego zapisu w dalszym ciagu nie znam
+        print('{}. {}: {}'.format(i+1, produkt, ilosc))
+
+#lista3_zadanie3()
 #zadanie ukonczone? wpisz 1 jesli tak
-ukonczenie_zadania += 0
+ukonczenie_zadania += 1
 #szacunkowy poziom znajomosci zagadnienia od 1 do 10
-szac_poziom_znajomosci_zadania += 0
+szac_poziom_znajomosci_zadania += 3
 
 def lista3_zadanie4():
-        '''
+    '''
+    Zad 4.
 
-        '''
+    Napisz skrypt, który:
 
-lista3_zadanie4()
+    losuje liczbę całkowitą mniejszą od 100 (help(random.randint))
+    pyta użytkownika o odgadnięcie liczby
+    informuje użytkownika, czy podana przez niego liczba jest:
+        dużo mniejsza (różnica > 50)
+        mniejsza (różnica > 10)
+        trochę mniejsza
+        trochę większa
+        większa (różnica > 10)
+        dużo większa (różnica > 50)
+    program się kończy, gdy użytkownik odgadnie wylosowaną liczbę
+
+    '''
+
+    x = random.randint(0, 100)
+    print(x)
+    # iterowanie w celu sprawdzenia zgadywanej liczby
+    iteracja = True
+    while iteracja == True:
+        y = int(input('zgadnij liczbe w zakresie 0-100:\n'))
+        roznica = abs(y - x)
+        if y == x:
+            print('Odgadles liczbe')
+            iteracja = False
+        elif y > x:
+            if roznica in range(50, 100):
+                print('Twoja liczba jest duzo wieksza niz zgadywana liczba')
+            elif roznica in range(10, 50):
+                print('Twoja liczba jest wieksza niz zgadywana liczba')
+            else:
+                print('Twoja liczba jest troche wieksza niz zgadywana liczba')
+        elif y < x:
+            if roznica in range(50, 100):
+                print('Twoja liczba jest duzo mniejsza niz zgadywana liczba')
+            elif roznica in range(10, 50):
+                print('Twoja liczba jest mniejsza niz zgadywana liczba')
+            else:
+                print('Twoja liczba jest troche mniejsza niz zgadywana liczba')
+
+
+
+
+
+#lista3_zadanie4()
 #zadanie ukonczone? wpisz 1 jesli tak
-ukonczenie_zadania += 0
+ukonczenie_zadania += 1
 #szacunkowy poziom znajomosci zagadnienia od 1 do 10
-szac_poziom_znajomosci_zadania += 0
+szac_poziom_znajomosci_zadania += 4
 
 def lista3_zadanie5():
-        '''
+    '''
+    Zad 5.
 
-        '''
+    Poniższy skrypt narysuje kwadrat:
 
-lista3_zadanie5()
+    #!/usr/bin/env python
+
+    import turtle
+
+    length = eval(input("Podaj dł\lugosc boku: "))
+    n_sides = 4 # ilosc boków
+
+    turtle.speed(20) # ustal predkosc zolwia
+
+    # powtorz n_sides razy
+    for i in range(n_sides):
+        turtle.forward(length) # narysuj linie o danej dlugosci
+        turtle.right(90)       # obroc sie w prawo o dany kat
+
+    turtle.mainloop() # nie zamykaj okna po narysowaniu
+
+    5.1 zmodyfikuj go tak, aby narysował trójkąt równoboczny
+    5.2 zmodyfikuj go tak, aby narysował sześciokąt foremny
+    5.3 zmodyfikuj go tak, aby narysował wielokąt foremny, którego liczba boków podana jest przez użytkownika
+                '''
+    # 5.1
+    ''' 
+     length = eval(input('podaj dlugosc boku:'))  # nie znalem metody eval
+
+    n_sides = 3
+    turtle.speed(2)
+
+    for i in range(n_sides):
+        turtle.forward(length)
+        turtle.right(120)
+    turtle.mainloop()
+    
+    
+
+    '''
+
+    '''
+    5.2
+    length = eval(input('podaj dlugosc boku:'))  # nie znalem metody eval
+    n_sides = 6
+    turtle.speed(2)
+
+    for i in range(n_sides):
+        turtle.forward(length)
+        turtle.right(60)
+    turtle.mainloop()
+    '''
+
+    #5.3
+    liczba_bokow = eval(input('podaj ilosc bokow: '))
+    length = eval(input('podaj dlugosc boku:'))  # nie znalem metody eval
+
+    turtle.speed(2)
+    kat = 360/liczba_bokow
+
+    for i in range(liczba_bokow):
+        turtle.forward(length)
+        turtle.right(kat)
+    turtle.mainloop()
+
+
+#lista3_zadanie5()
 #zadanie ukonczone? wpisz 1 jesli tak
-ukonczenie_zadania += 0
-#szacunkowy poziom znajomosci zagadnienia od 1 do 10
-szac_poziom_znajomosci_zadania += 0
+ukonczenie_zadania += 1
+#szacunkowy poziom znajomosci zagadnienia od 1 do 10 # zrozumiane dobrze ale nie mam w pamieci tych funkcji
+szac_poziom_znajomosci_zadania += 7
 
 def lista4_zadanie1():
+    '''
+    Zad 1.
+
+    Stwórz słownik, który przyporządkuje pięciu różnym produktom ich cenę. Następnie:
+
+    w pętli wydrukuj na ekranie listę produktów z ceną
+    policz średnią cenę produktu
+    dodaj nowy produkt
+    jak się zmieniła średnia cena?
+    napisz funkcję, która liczy średnią cenę
+    usuń produkt
+    policz średnią cenę
         '''
 
-        '''
 
-lista4_zadanie1()
+    cena_produktow = {'maslo':10, 'cukier':5, 'sol':3}
+    # cena_produktow.items() - lista utworzona z par klucz i wartosc
+    # enumerate - drukuje index i kolejny element listy
+
+    for i, (produkt, cena) in enumerate(cena_produktow.items()):
+        print('{} produkt: {} -> cena: {} '.format(i, produkt, cena)) # zrozumialem zapis, nie bardzo plynne uzycie
+
+    ilosc_produktow = len(cena_produktow)
+    suma_cen = sum(cena_produktow.values())
+    srednia_cena = suma_cen/ilosc_produktow
+    print('srednia cena: {}'.format(srednia_cena))
+
+    cena_produktow['orzechy'] = 70
+    cena_produktow.update(banany=11)
+
+    ilosc_produktow = len(cena_produktow)
+    suma_cen = sum(cena_produktow.values())
+    srednia_cena = suma_cen / ilosc_produktow
+    print('srednia cena: {}'.format(srednia_cena))
+
+
+    def sr_cena():
+        x = suma_cen / ilosc_produktow
+        print(x)
+    sr_cena()
+
+    del cena_produktow['banany']
+    print(cena_produktow)
+
+
+
+    '''
+    srednia_cena = (sum(cena_produktow.values))/(len(cena_produktow))
+    print('srednia cena: {}'.format(srednia_cena))
+    '''
+
+
+    #pytania_weryfikujace
+    # jak zbudowany jest slownik
+    # sposoby budowania slownika (rowniez przez konstruktor - 4 sposoby
+    # dostep do wartosc - 2 sposoby
+    # modyfikowanie kluczy
+    # dostep do kluczy, do wartosci, do pary klucze wartosci
+    # usuwanie kluczy - 2 sposoby
+    # dodawnia kluczy  - 3 sposoby
+    # petla po slowniku (po kluczach , po wartosciach, z enumerate)
+
+
+#lista4_zadanie1()
 #zadanie ukonczone? wpisz 1 jesli tak
-ukonczenie_zadania += 0
+ukonczenie_zadania += 1
 #szacunkowy poziom znajomosci zagadnienia od 1 do 10
-szac_poziom_znajomosci_zadania += 0
+szac_poziom_znajomosci_zadania += 6
 
 def lista4_zadanie2():
-        '''
+    '''
+    Zad 2.
 
-        '''
+    Napisz funkcję, która znajduje mniejszą liczbę z dwóch podanych.
 
-lista4_zadanie2()
+    '''
+
+    def porownaj(a,b):
+        if a < b:
+            return a
+        else:
+            return b
+    wynik = porownaj(4,8)
+    print(wynik)
+
+    # pytania_weryfikujace:
+    # jak uzyjesz petli if do porownania dwoch wartosci?
+    # argumenty funkcji podawane w funkcji
+    # zmienna = funkcja = wyjasnij
+
+
+#lista4_zadanie2()
 #zadanie ukonczone? wpisz 1 jesli tak
-ukonczenie_zadania += 0
+ukonczenie_zadania += 1
 #szacunkowy poziom znajomosci zagadnienia od 1 do 10
-szac_poziom_znajomosci_zadania += 0
+szac_poziom_znajomosci_zadania += 3
 
 def lista4_zadanie3():
-        '''
+    '''
+    Zad 3.
 
-        '''
+    Napisz funkcję, która z podanych liczb (ilość dowolna) znajduje najmniejszą.
 
-lista4_zadanie3()
+    Uwaga: Możesz wykorzystać funkcję z zadania 2.
+    '''
+
+    def porownaj(*args):
+        #return min(args) # najszybszy sposob
+        min = args[0]
+        for i in args:
+            if i < min:
+                min = i
+        print(min)
+
+
+    wynik = porownaj(4,8,3,4)
+    print(wynik)
+
+#lista4_zadanie3()
 #zadanie ukonczone? wpisz 1 jesli tak
-ukonczenie_zadania += 0
+ukonczenie_zadania += 1
 #szacunkowy poziom znajomosci zagadnienia od 1 do 10
-szac_poziom_znajomosci_zadania += 0
+szac_poziom_znajomosci_zadania += 3
 
 def lista4_zadanie4():
-        '''
+    '''
+    Zad 4.
 
-        '''
+    Napisz funkcję, która wypisze na ekranie n pierwszych wyrazów ciągu Fibonacciego.
 
-lista4_zadanie4()
+    Definicja ciągu Fibonacciego: Ciąg Fibonacciego
+
+    Zad 5.
+    '''
+
+    def fibonacci(n):
+        print('Fibonacci sequance:')
+        n1, n2 = 0, 1
+        count = 0
+        while count < n:
+            print(n1)
+            n1, n2 = n2, n1 + n2
+            count += 1
+
+    fibonacci()
+
+
+#lista4_zadanie4()
 #zadanie ukonczone? wpisz 1 jesli tak
-ukonczenie_zadania += 0
+ukonczenie_zadania += 1
 #szacunkowy poziom znajomosci zagadnienia od 1 do 10
-szac_poziom_znajomosci_zadania += 0
+szac_poziom_znajomosci_zadania += 5
 
 def lista4_zadanie5():
         '''
+Zad 5.
 
+Napisz program, który pobiera od użytkownika współczynniki trójmianu kwadratowego, a następnie podaje jego rozwiązania.
+
+Uwaga: Rozłóż program na mniejsze funkcje.
+
+Definicja trójmianu kwadratowego: Trójmian Kwadratowy
         '''
 
 lista4_zadanie5()
@@ -581,6 +877,23 @@ szac_poziom_znajomosci_zadania += 0
 
 def lista4_zadanie6():
         '''
+Zad 6.
+
+    Napisz funkcję, która przyjmuje dowolną liczbę argumentów pozycyjnych oraz kluczowych.
+    Niech funkcja drukuje argumenty pozycyjne w formie listy:
+
+1 -> wartość pierwszego argumentu
+2 -> wartość drugiego argumentu
+.
+.
+.
+
+    Niech funkcja drukuje argumenty kluczowe w formie listy:
+
+nazwa (klucz) -> wartość
+.
+.
+.
 
         '''
 
@@ -590,42 +903,18 @@ ukonczenie_zadania += 0
 #szacunkowy poziom znajomosci zagadnienia od 1 do 10
 szac_poziom_znajomosci_zadania += 0
 
-def lista4_zadanie7():
-        '''
-
-        '''
-
-lista4_zadanie7()
-#zadanie ukonczone? wpisz 1 jesli tak
-ukonczenie_zadania += 0
-#szacunkowy poziom znajomosci zagadnienia od 1 do 10
-szac_poziom_znajomosci_zadania += 0
-
-def lista4_zadanie8():
-        '''
-
-        '''
-
-lista4_zadanie8()
-#zadanie ukonczone? wpisz 1 jesli tak
-ukonczenie_zadania += 0
-#szacunkowy poziom znajomosci zagadnienia od 1 do 10
-szac_poziom_znajomosci_zadania += 0
-
-def lista4_zadanie9():
-        '''
-
-        '''
-
-lista4_zadanie9()
-#zadanie ukonczone? wpisz 1 jesli tak
-ukonczenie_zadania += 0
-#szacunkowy poziom znajomosci zagadnienia od 1 do 10
-szac_poziom_znajomosci_zadania += 0
 
 def lista5_zadanie1():
         '''
+Zad 1.
 
+Stwórz moduł ciag_arytmetyczny.py zawierający funkcje, które dla podanych a1 (pierwszy wyraz ciągu), r (różnica) oraz n zwracają:
+
+    n-ty wyraz ciągu
+    sumę pierwszych n wyrazów ciągu
+
+Wzór na ciąg arytmetyczny: an = a1 + (n - 1) * r
+Przykład: 1,3,5,7,9 gdzie a1 = 1, r = 2, n = [1,5]
         '''
 
 lista5_zadanie1()
@@ -636,7 +925,15 @@ szac_poziom_znajomosci_zadania += 0
 
 def lista5_zadanie2():
         '''
+Zad 2.
 
+Napisz skrypt, który zaimportuje moduł z pierwszego zadania. Następnie:
+
+    spyta użytkownika o a1, r i n
+    wydrukuje na ekranie n-ty wyraz ciągu
+    wydrukuje na ekranie sumę pierwszych n wyrazów ciągu
+
+Zad 3.
         '''
 
 lista5_zadanie2()
@@ -647,6 +944,12 @@ szac_poziom_znajomosci_zadania += 0
 
 def lista5_zadanie3():
         '''
+Zad 3.
+
+Napisz funkcję, która dla podanego n i c0 wyznacza n-ty wyraz ciągu Collatza.
+
+Definicja problemu Collatza: Problem Collatza
+
 
         '''
 
@@ -658,7 +961,9 @@ szac_poziom_znajomosci_zadania += 0
 
 def lista5_zadanie4():
         '''
+Zad 4.
 
+Napisz funkcję, która dla podanego n i c0 wyznacza pierwsze wystąpienie liczby 1 w ciągu Collatza.
         '''
 
 lista5_zadanie4()
@@ -669,6 +974,12 @@ szac_poziom_znajomosci_zadania += 0
 
 def lista5_zadanie5():
         '''
+Zad 5 - Zadanie domowe.
+
+Przeanalizuj rozwiązanie zadania 5 w Przykładowych Rozwiązaniach, które dokonuje konwersji między kolorami opisanymi w RGB i HEX.
+
+Wyciągnij wnioski i przedstaw je na kolejnych zajęciach.
+
 
         '''
 
@@ -680,43 +991,14 @@ szac_poziom_znajomosci_zadania += 0
 
 def lista5_zadanie6():
         '''
+Zad 6 - Pierwszy Projekt
 
+Zapoznaj się z opisem projektu Gra - Krowy i Byki, który będzie Twoim pierwszym samodzielnym projektem.
+
+Do dzieła!
         '''
 
 lista5_zadanie6()
-#zadanie ukonczone? wpisz 1 jesli tak
-ukonczenie_zadania += 0
-#szacunkowy poziom znajomosci zagadnienia od 1 do 10
-szac_poziom_znajomosci_zadania += 0
-
-def lista5_zadanie7():
-        '''
-
-        '''
-
-lista5_zadanie7()
-#zadanie ukonczone? wpisz 1 jesli tak
-ukonczenie_zadania += 0
-#szacunkowy poziom znajomosci zagadnienia od 1 do 10
-szac_poziom_znajomosci_zadania += 0
-
-def lista5_zadanie8():
-        '''
-
-        '''
-
-lista5_zadanie8()
-#zadanie ukonczone? wpisz 1 jesli tak
-ukonczenie_zadania += 0
-#szacunkowy poziom znajomosci zagadnienia od 1 do 10
-szac_poziom_znajomosci_zadania += 0
-
-def lista5_zadanie9():
-        '''
-
-        '''
-
-lista5_zadanie9()
 #zadanie ukonczone? wpisz 1 jesli tak
 ukonczenie_zadania += 0
 #szacunkowy poziom znajomosci zagadnienia od 1 do 10
@@ -1426,12 +1708,13 @@ def performance():
     #procent ukonczenia wszystkich zadan
     c = round((b/a)*100)
 
+
     print('\nukonczona liczba zadan: {}'.format(b))
     print('procent ukonczenia wszystkich zadan : {}%'.format(c))
-    wynik = szac_poziom_znajomosci_zadania/ukonczenie_zadania
+    wynik = round(szac_poziom_znajomosci_zadania/ukonczenie_zadania)
     print('srednia poziomu znajomosci wykonanych zadan : {}'.format(wynik))
     wynik_2 = round(((szac_poziom_znajomosci_zadania)/(a)))
-    print('srednia poziomu znajomosci calego materialu : {}%'.format(wynik_2))
+    print('srednia poziomu znajomosci calego materialu : {}'.format(wynik_2))
 
 performance()
 
